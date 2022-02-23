@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: devops-fe
-          image: dockersrana/devops-fe
+          image: dockersrana/devops-fe:1
 ---
 apiVersion: v1
 kind: Service
