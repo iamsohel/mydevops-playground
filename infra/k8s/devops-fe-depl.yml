@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-fe-depl
+  namespace: mydevops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-fe
+  template:
+    metadata:
+      labels:
+        app: devops-fe
+    spec:
+      containers:
+        - name: devops-fe
+          image: dockersrana/devops-fe
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-fe-srv
+  namespace: mydevops
+spec:
+  selector:
+    app: devops-fe
+  ports:
+    - name: devops-fe
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
